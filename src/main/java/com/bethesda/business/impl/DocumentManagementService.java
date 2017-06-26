@@ -8,7 +8,6 @@ import org.springframework.stereotype.Service;
 
 import com.bethesda.business.impl.dictionary.DictionnaryFileService;
 import com.bethesda.business.impl.document.FileScannerService;
-import com.bethesda.model.Document;
 import com.bethesda.model.DocumentWrapper;
 
 @Service

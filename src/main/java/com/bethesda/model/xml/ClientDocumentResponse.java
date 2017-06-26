@@ -8,8 +8,8 @@ import javax.xml.bind.annotation.XmlRootElement;
 @XmlRootElement(name = "DOCUMENTS")
 public class ClientDocumentResponse {
 
-private List<ClientDocument> documents;
-	
+	private List<ClientDocument> documents;
+
 	public List<ClientDocument> getDocuments() {
 		return documents;
 	}

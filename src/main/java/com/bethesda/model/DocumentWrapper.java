@@ -59,7 +59,7 @@ public class DocumentWrapper {
 	}
 	
 	public String extractFullName() {
-		return directory + "/" + fileName;
+		return directory;
 	}
 	
 	public String getDocumentName() {

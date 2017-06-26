@@ -4,17 +4,17 @@ import javax.xml.bind.annotation.XmlElement;
 
 public class ClientDocument {
 
-public String documentName;
-	
-	public Long version;
+	private String documentName;
 
-	public Long length;
+	private Long version;
+
+	private Long length;
 
 	public String getDocumentName() {
 		return documentName;
 	}
 
-	@XmlElement(name="DOCUMENT_NAME")
+	@XmlElement(name = "DOCUMENT_NAME")
 	public void setDocumentName(String documentName) {
 		this.documentName = documentName;
 	}
@@ -23,7 +23,7 @@ public String documentName;
 		return version;
 	}
 
-	@XmlElement(name="VERSION")
+	@XmlElement(name = "VERSION")
 	public void setVersion(Long version) {
 		this.version = version;
 	}
@@ -32,7 +32,7 @@ public String documentName;
 		return length;
 	}
 
-	@XmlElement(name="LENGTH")
+	@XmlElement(name = "LENGTH")
 	public void setLength(Long length) {
 		this.length = length;
 	}

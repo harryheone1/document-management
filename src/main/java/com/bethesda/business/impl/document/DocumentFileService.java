@@ -36,7 +36,7 @@ public class DocumentFileService {
 		Document document = documentAccessRepository.extractDocumentFromFile(file, Document.class);
 		DocumentWrapper wrapper = new DocumentWrapper(document);
 		if (document != null && file != null) {
-			wrapper.setFileName(file.getName());
+			//wrapper.setFileName(file.getName());
 			wrapper.setDirectory(file.getPath());
 		}
 		return wrapper;

@@ -4,13 +4,13 @@ import javax.xml.bind.annotation.XmlElement;
 
 public class ServerDocument {
 
-	public String documentName;
+	private String documentName;
 	
-	public Long version;
+	private Long version;
 
-	public Long length;
+	private Long length;
 
-	public String path;
+	private String path;
 
 	public String getDocumentName() {
 		return documentName;

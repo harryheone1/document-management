@@ -48,11 +48,11 @@ public enum DictionnaryType {
 	};
 
 	public String getRootElment() {
-		return "documents";
+		return "DOCUMENTS";
 	}
 	
 	public String getNodeParentElmentText() {
-		return "document";
+		return "DOCUMENT";
 	}
 
 	public List<Map<String, String>> buildAllElements(List<DocumentWrapper> currentDocuments) {
