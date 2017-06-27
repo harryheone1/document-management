@@ -3,12 +3,9 @@ package com.bethesda.model;
 public class DocumentWrapper {
 
 	private Document document;
-	/** The directory. */
-	private String directory;
-	
-	/** The file name. */
-	private String fileName;
 
+	private String fullPath;
+	
 	public DocumentWrapper(Document document) {
 		super();
 		this.document = document;
@@ -22,44 +19,17 @@ public class DocumentWrapper {
 		this.document = document;
 	}
 
-	/**
-	 * Gets the directory.
-	 *
-	 * @return the directory
-	 */
-	public String getDirectory() {
-		return directory;
+
+	public String getFullPath() {
+		return fullPath;
 	}
 
-	/**
-	 * Sets the directory.
-	 *
-	 * @param directory the new directory
-	 */
-	public void setDirectory(String directory) {
-		this.directory = directory;
+	public void setFullPath(String fullPath) {
+		this.fullPath = fullPath;
 	}
 
-	/**
-	 * Gets the file name.
-	 *
-	 * @return the file name
-	 */
-	public String getFileName() {
-		return fileName;
-	}
-
-	/**
-	 * Sets the file name.
-	 *
-	 * @param fileName the new file name
-	 */
-	public void setFileName(String fileName) {
-		this.fileName = fileName;
-	}
-	
 	public String extractFullName() {
-		return directory;
+		return fullPath;
 	}
 	
 	public String getDocumentName() {

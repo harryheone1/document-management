@@ -1,0 +1,105 @@
+logging:
+  level:
+    org.springframework.web: ERROR
+    com.bethesda: DEBUG
+  pattern:
+    console: "%d{yyyy-MM-dd HH:mm:ss} - %msg%n"
+    file: "%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n"
+  file: /Users/hejunz/src/Java/eworkspace/document-management/src/main/resource/log
+
+spring:
+  profiles:
+    active: "linux"
+  main:
+    banner-mode: "off"
+
+---
+
+spring:
+  profiles: linux
+
+document:
+  directory: /Users/hejunz/src/Java/eworkspace/document-management/src/main/resource/file
+  extention: xml
+  root: DOCUMENT
+  elements:
+    - name: DOCUMENT_NAME
+      type: String
+    - name: VERSION
+      type: Long
+    - name: DATA
+      type: Binary
+
+dictionnary:
+  server:
+    directory: /Users/hejunz/src/Java/eworkspace/document-management/src/main/resource
+    name: server
+    extention: xml
+    root: DOCUMENTS
+    parent: DOCUMENT
+    elements:
+    - name: DOCUMENT_NAME
+      type: String
+    - name: VERSION
+      type: Long
+    - name: LENGTH
+      type: Long
+    - name: PATH_TO_FILE
+      type: String
+  client:
+    directory: /Users/hejunz/src/Java/eworkspace/document-management/src/main/resource
+    name: client
+    extention: xml
+    root: DOCUMENTS
+    parent: DOCUMENT
+    elements:
+    - name: DOCUMENT_NAME
+      type: String
+    - name: VERSION
+      type: Long
+    - name: LENGTH
+      type: Long
+    
+    
+---
+
+spring:
+  profiles: windows
+
+document:
+  directory: C:\\
+  extention: xml
+  root: DOCUMENT
+  elements:
+    - name: DOCUMENT_NAME
+      type: String
+    - name: VERSION
+      type: Long
+    - name: DATA
+      type: Binary
+
+dictionnary:
+  server:
+    directory: C:\\
+    name: server
+    extention: xml
+    elements:
+    - name: DOCUMENT_NAME
+      type: String
+    - name: VERSION
+      type: Long
+    - name: LENGTH
+      type: Long
+    - name: PATH_TO_FILE
+      type: String
+  client:
+    directory: C:\\
+    name: client
+    extention: xml
+    elements:
+    - name: DOCUMENT_NAME
+      type: String
+    - name: VERSION
+      type: Long
+    - name: LENGTH
+      type: Long    

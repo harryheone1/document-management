@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="hello.HelloControllerIT" tests="1" skipped="1" failures="0" errors="0" timestamp="2017-06-26T08:37:05" hostname="junzhihematombp" time="0.001">
+<testsuite name="hello.HelloControllerIT" tests="1" skipped="1" failures="0" errors="0" timestamp="2017-06-27T05:24:21" hostname="junzhihematombp" time="0.0">
   <properties/>
-  <testcase name="initializationError" classname="hello.HelloControllerIT" time="0.001">
+  <testcase name="initializationError" classname="hello.HelloControllerIT" time="0.0">
     <skipped/>
   </testcase>
   <system-out><![CDATA[]]></system-out>
