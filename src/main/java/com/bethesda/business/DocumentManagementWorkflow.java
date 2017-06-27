@@ -2,6 +2,7 @@ package com.bethesda.business;
 
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.List;
 
@@ -29,23 +30,29 @@ public class DocumentManagementWorkflow {
 	public void refreshDictionary() throws ErrorInfoEexception {
 		// 1 - Scan All xml files
     	List<DocumentWrapper> documents;
-		try {
-			documents = documentBusinessCenter.getAllDocumentAsJavaObject();
-			// 2 - update server.xml and client.xml
-			dictionnarydocumentBusinessCenter.rebuildDictionary(documents);
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+			try {
+				documents = documentBusinessCenter.getAllDocumentAsJavaObject();
+				// 2 - update server.xml and client.xml
+				dictionnarydocumentBusinessCenter.rebuildDictionary(documents);
+			} catch (IOException e) {
+				logger.error("Error happened when get all document, maybe path is wrong", e);
+				throw new ErrorInfoEexception(ErrorInfoEnum.UNKOWN_ERROR);
+			}
+			
 	}
 
-	public InputStreamResource getDownloadDocument(String name, Long version) throws Exception {
+	public InputStreamResource getDownloadDocument(String name, Long version) throws ErrorInfoEexception {
 		if (!documentBusinessCenter.isVersionUpToDate(name, version)) {
 			logger.error("Error happened when download xml file, file not exist or expired version, please rerun resouce endpoint to update your dictionnary");
-			throw new ErrorInfoEexception(ErrorInfoEnum.UNKOWN_ERROR);
+			throw new ErrorInfoEexception(ErrorInfoEnum.DOCUMENT_NOT_EXIST);
 		}
 		File documentFile = documentBusinessCenter.getDocumentPathInfo(name);
-		return new InputStreamResource(new FileInputStream(documentFile));
+		try {
+			return new InputStreamResource(new FileInputStream(documentFile));
+		} catch (FileNotFoundException e) {
+			logger.error("Error happened when download xml file, file not exist", e);
+			throw new ErrorInfoEexception(ErrorInfoEnum.DOCUMENT_NOT_EXIST);
+		}
 
 		
 	}

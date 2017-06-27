@@ -27,10 +27,6 @@ public class DictionnaryBusinessCenter {
 		// TODO read/write lock
 	}
 
-	public void deleteDocumentOfDictionary() {
-		// TODO read/write lock
-	}
-
 	public ServerDocumentResponse getServerDictionaryAsResponse(File file) throws ErrorInfoEexception {
 		return documentAccessRepository.extractDocumentFromFile(new File(propertiesService.getServerDictionaryFileFullName()), ServerDocumentResponse.class);
 	}

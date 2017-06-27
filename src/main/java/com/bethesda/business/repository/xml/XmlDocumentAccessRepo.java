@@ -6,6 +6,8 @@ import java.io.IOException;
 import java.io.Writer;
 import java.util.List;
 import java.util.Map;
+import java.util.concurrent.locks.ReadWriteLock;
+import java.util.concurrent.locks.ReentrantReadWriteLock;
 
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
@@ -29,19 +31,32 @@ public class XmlDocumentAccessRepo implements IDocumentAccessRepo {
 
 	private static final Logger logger = LoggerFactory.getLogger(XmlDocumentAccessRepo.class);
 
+	private final ReadWriteLock lock = new ReentrantReadWriteLock(); 
+	
+	
 	@Override
 	public <T> T extractDocumentFromFile(File file, Class<T> resultType) throws ErrorInfoEexception {
 		JAXBContext jaxbContext;
-		try {
-			// TODO write lock
-			jaxbContext = JAXBContext.newInstance(resultType);
-			Unmarshaller jaxbUnmarshaller = jaxbContext.createUnmarshaller();
-			return resultType.cast(jaxbUnmarshaller.unmarshal(file));
-		} catch (JAXBException e) {
-			logger.error("Error happened when convert xml to java, please check them", e);
-			throw new ErrorInfoEexception(ErrorInfoEnum.UNKOWN_ERROR);
-		}
+			try {
+				jaxbContext = JAXBContext.newInstance(resultType);
+				Unmarshaller jaxbUnmarshaller = jaxbContext.createUnmarshaller();
+				lock.readLock().lock();
+				try {
+					Object result = jaxbUnmarshaller.unmarshal(file);
+					lock.readLock().unlock();
+					return resultType.cast(result);
+				} catch(JAXBException e) {
+					lock.readLock().unlock();
+					logger.error("Error happened when convert xml to java, please check them", e);
+					throw new ErrorInfoEexception(ErrorInfoEnum.DOCUMENT_BAD_FORMAT_OR_PATH_ERROR);
+				}
+				
+			} catch (JAXBException e) {
+				logger.error("Error happened when convert xml to java, please check them", e);
+				throw new ErrorInfoEexception(ErrorInfoEnum.UNKOWN_ERROR);
 
+			}
+			
 	}
 
 	@Override

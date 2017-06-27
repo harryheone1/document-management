@@ -9,7 +9,6 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 public class ErrorInfoHandler {
 
 	@ExceptionHandler(value = ErrorInfoEexception.class)
-
 	public ResponseBody errorHandlerOverJson(HttpServletRequest request,
 			ErrorInfoEexception exception) {
         ErrorInfo errorInfo = exception.getErrorInfo();
