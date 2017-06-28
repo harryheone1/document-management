@@ -1,51 +1,42 @@
-# 
-
-How to run it?
-
-
-
-More explain of design and tech of this project will added sooner.
-
-
 # document-management
 
-A document management web service which could download, upload, pass dictionary to multiple client.
+A document management web service which could download, upload, pass dictionary to multiple client.  
 upload and delete functionality are not finished and I don't want to finish them because this a dummy project to evaluate
-programmer's capability and it doesn't make sense to double the quantity of code.
-Existing code is clear enough to evaluate the code level.
+programmer's capability and it doesn't make sense to double the quantity of code.  
+Existing code is clear enough to evaluate the code level.  
 
 ## Getting Started
 Two endponits finished are:  
-http://localhost:8080/api/resource 
-http://localhost:8080/api/document/TEST_MY_APP1/version/1
+http://localhost:8080/api/resource  
+http://localhost:8080/api/document/TEST_MY_APP1/version/1  
 
-Please check your localhost port is not occupied by other application as Skype.
+Please check your localhost port is not occupied by other application as Skype.  
 
 ### Prerequisites
 
-Install a Java version 1.8
-Install a Gradle version 4.0
-For system env variable as Path, JAVA_HOME, GRADLE_HOME, please refer to official document as Windows, Linux, MacOS
+Install a Java version 1.8  
+Install a Gradle version 4.0  
+For system env variable as Path, JAVA_HOME, GRADLE_HOME, please refer to official document as Windows, Linux, MacOS  
 
 
 ### Installing
 
-1 - Clone from Git to local.
-2 - Import as Gradle in Eclipse.
+1 - Clone from Git to local.  
+2 - Import as Gradle in Eclipse.  
 3 - (Only for windows user) copy all xml file(test1.xml, test2.xml, test3.xml) from src/main/resource/file to your C:\\
-	3.1 - (Only for windows user) go to application.yml, line 12, change "active: windows"
-4 - (Only for MacOS or Linux) create folder /Users/hejunz/src/Java/eworkspace/, put your project document-management to this folder.
-5 - In command line, run ./gradlew build && java -jar build/libs/file-management-0.1.0.jar .
-6 - If command line mode doesn't work, please goto Class BootApplication.java in Eclipse and Run it as MainApplication
-7 - If two server.xml and client.xml are created into C://(for windows) 
-	and /Users/hejunz/src/Java/eworkspace/document-management/src/main/resource (Linux or mac)
+	3.1 - (Only for windows user) go to application.yml, line 12, change "active: windows"  
+4 - (Only for MacOS or Linux) create folder /Users/hejunz/src/Java/eworkspace/, put your project document-management to this folder.  
+5 - In command line, run ./gradlew build && java -jar build/libs/file-management-0.1.0.jar .  
+6 - If command line mode doesn't work, please goto Class BootApplication.java in Eclipse and Run it as MainApplication  
+7 - If two server.xml and client.xml are created into C://(for windows)
+	and /Users/hejunz/src/Java/eworkspace/document-management/src/main/resource (Linux or mac)  
 
-If it could not work, please refer to me by harryheone@gmail.com. 
+If it could not work, please refer to me by harryheone@gmail.com.  
 
 ## Running the tests
 
-There is no Unit Test because it takes the time I don't have to finish it with high coverage.
-It is simple module project and easy to write test with JUnit/TestNG and Mockito.
+There is no Unit Test because it takes the time I don't have to finish it with high coverage.  
+It is simple module project and easy to write test with JUnit/TestNG and Mockito.  
 There is little Demo of Unit test in the src/test/main
 
 
