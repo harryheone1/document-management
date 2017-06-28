@@ -23,7 +23,7 @@ For system env variable as Path, JAVA_HOME, GRADLE_HOME, please refer to officia
 
 1 - Clone from Git to local.  
 2 - Import as Gradle in Eclipse.  
-3 - (Only for windows user) copy all xml file(test1.xml, test2.xml, test3.xml) from src/main/resource/file to your C:\\
+3 - (Only for windows user) copy all xml file(test1.xml, test2.xml, test3.xml) from src/main/resource/file to your C:\\  
 	3.1 - (Only for windows user) go to application.yml, line 12, change "active: windows"  
 4 - (Only for MacOS or Linux) create folder /Users/hejunz/src/Java/eworkspace/, put your project document-management to this folder.  
 5 - In command line, run ./gradlew build && java -jar build/libs/file-management-0.1.0.jar .  
