@@ -15,7 +15,7 @@ programmer's capability and it doesn't make sense to double the quantity of code
 Existing code is clear enough to evaluate the code level.
 
 ## Getting Started
-Two endponits finished are:
+Two endponits finished are:  
 http://localhost:8080/api/resource 
 http://localhost:8080/api/document/TEST_MY_APP1/version/1
 
